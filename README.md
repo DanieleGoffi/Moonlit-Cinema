@@ -1,6 +1,6 @@
 # 🌕 Moonlit Cinema (Work in Progress)
 
-🎬 A modern web application for booking movie tickets and managing theater screens and showtimes.
+🎬 A modern web application for booking movie tickets and managing theater screens and showtimes. <br>
 ⚠️ This project is currently under active development. Features and structure may change frequently.
 
 ## 📌 Overview
