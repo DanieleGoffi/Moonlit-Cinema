@@ -10,35 +10,13 @@ and open the template in the editor.
 
 
 
-li a.active {
-    background-color: rgb(12, 9, 219);
+header {
+    color: white;
+    padding: 0.5em;
+    text-align: center;
 }
 
-body
-{
-    max-width: 75%;
-    margin-left: 12.5%;
-}
 
-div.citazione {
-    text-align: justify;
-}
-
-div.citazione > blockquote > p {
-    font-style: italic;
-}
-
-.header-sezione {
-    border-bottom: 2px solid #357ebd;
-    margin-bottom: 2em;
-}
-
-.navbar-brand {
-    display: inline-block;
-    text-indent: -9999px;
-    width: 160px;
-    background: url(../img/pretty-2-th.jpg) center center no-repeat;
-}
 
 .confirm {
     font-size: 1.25rem; 
@@ -55,6 +33,7 @@ div.citazione > blockquote > p {
 .titolo {
     color: rgba(255, 255, 0, 0.826);
     font-family: monospace;
+    text-decoration:none
 }
 
 p {
@@ -75,3 +54,4 @@ footer {
     margin-top: auto; /* Spinge il footer in fondo */
     border-top: 2px solid #357ebd;
 }
+

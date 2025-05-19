@@ -16,4 +16,14 @@ class Seat extends Model
         return $this->belongsTo(Screen::class);
     }
 
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
 }

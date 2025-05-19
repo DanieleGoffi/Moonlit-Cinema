@@ -24,24 +24,70 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
     <body>
+        
+       
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
                 </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                        <a class="nav-link  @yield('active_home') fs-2 font-monospace" aria-current="page" href="{{ route('home') }}"> <img src="{{ asset('imgs/moon.svg') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-                        MoonlitCinema</a>
-                        <a class="nav-link fs-2 font-monospace" href="#">Movies</a>
-                        <a class="nav-link fs-2 font-monospace" href="#">Tickets</a>
-                        <a class="nav-link disabled fs-2 font-monospace" aria-disabled="true">Disabled</a>
-                        </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link  @yield('active_home') fs-2 font-monospace" aria-current="page" href="{{ route('home') }}"> <img src="{{ asset('imgs/moon.svg') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top"> Home</a>
+                    </li>
+                        @if(!isset($_SESSION['logged']))
+                        <li class="nav-item">
+                        <a class="nav-link @yield('active_movies') fs-2 font-monospace" href="{{ route('movie.client.index') }}"> Film </a>
+                        </li>
+                        @endif
+                        @if((isset($_SESSION['logged']))&&($_SESSION['role']==='client'))
+                        <li class="nav-item">
+                        <a class="nav-link @yield('active_movies') fs-2 font-monospace" href="{{ route('movie.client.index') }}"> Film </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link fs-2 font-monospace" href="#"> Biglietti </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link fs-2 font-monospace" href="#"> Prenotazioni </a>
+                        </li>
+                        @endif
+                        @if((isset($_SESSION['logged']))&&($_SESSION['role']==='admin'))
+                        <li class="nav-item">
+                        <a class="nav-link fs-2 font-monospace" href="#"> Proiezioni </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link fs-2 font-monospace" href=" {{ route('movie.index') }}"> Film </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link @yield('active_screens') fs-2 font-monospace" href="{{ route('screen.index') }}"> Sale </a>
+                        </li>
+                        @endif
+
+                </ul>
+                <ul class="navbar-nav d-flex flex-row-reverse">
+                            @if(isset($_SESSION['logged']))
+                            <li class="nav-item"><i>Ciao {{ $_SESSION['loggedName'] }}</i> <a href="{{ route('user.logout') }}"><i class="bi bi-box-arrow-right"></i> </a></li>
+                            @else
+                            <li class="nav-item"><a class="link-underline link-underline-opacity-0" href="{{ route('user.login') }}"><i class="bi bi-door-open"></i> Accedi </a></li>
+                            @endif
+                </ul>
                 </div>
             </div>
         </nav>
 
+
+
+
+
+        <div class="container-fluid bg-body-tertiary">
+                    <header class="text-center font-monospace">
+                        <h1 class="display-3">
+                        <img src="{{ asset('imgs/moon.svg') }}" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">@yield('title')<img src="{{ asset('imgs/moon.svg') }}" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">
+                        </h1>
+                    </header>
+                </div>
 
         <div class="container-fluid d-flex">
             <nav  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" 
@@ -52,13 +98,6 @@
             </nav>
         </div>
         
-        <div class="container-fluid">
-            <header class="header-sezione text-center">
-                <h1 class="font-monospace">
-                    @yield('title')
-                </h1>
-            </header>
-        </div>
 
 
         <div class="container-fluid">

@@ -61,6 +61,18 @@ return new class extends Migration
             $table->foreignId('screen_id')->constrained()->onDelete('cascade');
             $table->foreignId('movie_id')->constrained()->onDelete('cascade');
         });
+
+        Schema::create('reservations', function (Blueprint $table){
+            $table->foreignId('seat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('screening_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        });
+
+        Schema::create('tickets', function (Blueprint $table){
+            $table->foreignId('seat_id')->constrained()->onDelete('cascade');
+            $table->foreignId('screening_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        });
     }
 
     /**

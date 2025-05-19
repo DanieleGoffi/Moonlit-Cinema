@@ -9,7 +9,7 @@ class Screening extends Model
 {
     use HasFactory;
     protected $table = 'screenings';
-    protected $fillable = ['projection_time', 'projection_date', 'screen_id', 'movie_id'];
+    protected $fillable = ['projection_time', 'projection_date' , 'screen_id', 'movie_id'];
 
     public function movie()
     {
@@ -19,6 +19,16 @@ class Screening extends Model
     public function screen()
     {
         return $this->belongsTo(Screen::class);
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
     }
 
 }

@@ -25,117 +25,109 @@ class ScreeningSeeder extends Seeder
             $this->call(ScreenSeeder::class);
         }
 
-        $screenings = [
-            // FILM 1 
-            // giorno 1
-            [
+        $i=1;
+        for ($j=1; $j<=10; $j++){
+            Screening::create([
                 'projection_time' => '14:30',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
                 'screen_id' => 1,  
-                'movie_id' => 1,   
-            ],
-            [
+                'movie_id' => $i,   
+            ]);
+            Screening::create([
                 'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'screen_id' => 2,
-                'movie_id' => 1,
-            ],
-            [
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 1,
+                'movie_id' => $i,
+            ]);
+            Screening::create([
                 'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'screen_id' => 3,
-                'movie_id' => 1,
-            ],
-            // film 1 giorno 2
-            [
-                'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(3)->format('Y-m-d'),
-                'screen_id' => 2,
-                'movie_id' => 1,
-            ],
-            [
-                'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(3)->format('Y-m-d'),
-                'screen_id' => 3,
-                'movie_id' => 1,
-            ],
-            // film 1 giorno 3
-            [
-                'projection_time' => '14:30',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 1,  
-                'movie_id' => 1,   
-            ],
-            [
-                'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 2,
-                'movie_id' => 1,
-            ],
-            [
-                'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 3,
-                'movie_id' => 1,
-            ],
-
-             // FILM 2
-             //  giorno 1
-             [
-                'projection_time' => '14:30',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'screen_id' => 4,  
-                'movie_id' => 2,   
-            ],
-            [
-                'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'screen_id' => 5,
-                'movie_id' => 2,
-            ],
-            [
-                'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(2)->format('Y-m-d'),
-                'screen_id' => 6,
-                'movie_id' => 2,
-            ],
-            // film 2 giorno 2
-            [
-                'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(3)->format('Y-m-d'),
-                'screen_id' => 4,
-                'movie_id' => 2,
-            ],
-            [
-                'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(3)->format('Y-m-d'),
-                'screen_id' => 5,
-                'movie_id' => 2,
-            ],
-            // film 2 giorno 3
-            [
-                'projection_time' => '14:30',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 4,  
-                'movie_id' => 2,   
-            ],
-            [
-                'projection_time' => '17:00',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 5,
-                'movie_id' => 2,
-            ],
-            [
-                'projection_time' => '20:30',
-                'projection_date' => Carbon::now()->addDays(4)->format('Y-m-d'),
-                'screen_id' => 6,
-                'movie_id' => 2,
-            ],
-        ];
-
-        // Inserisci gli screening
-        foreach ($screenings as $screening) {
-            Screening::create($screening);
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 1,
+                'movie_id' => $i,
+            ]);
         }
+
+        $i=2;
+        for ($j=1; $j<=10; $j++){
+            
+            Screening::create([
+                'projection_time' => '17:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 2,
+                'movie_id' => $i,
+            ]);
+            Screening::create([
+                'projection_time' => '21:30',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 2,
+                'movie_id' => $i,
+            ]);
+        }
+
+        $i=3;
+        for ($j=1; $j<=10; $j++){
+            Screening::create([
+                'projection_time' => '14:30',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 3,  
+                'movie_id' => $i,   
+            ]);
+            Screening::create([
+                'projection_time' => '20:30',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 3,
+                'movie_id' => $i,
+            ]);
+        }
+
+        $i=4;
+        for ($j=1; $j<=10; $j++){
+            
+            Screening::create([
+                'projection_time' => '20:30',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 4,
+                'movie_id' => $i,
+            ]);
+        }
+
+        $i=5;
+        for ($j=1; $j<=10; $j++){
+            Screening::create([
+                'projection_time' => '17:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 5,
+                'movie_id' => $i,
+            ]);
+            Screening::create([
+                'projection_time' => '20:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 5,
+                'movie_id' => $i,
+            ]);
+        }
+
+        $i=6;
+        for ($j=1; $j<=10; $j++){
+            Screening::create([
+                'projection_time' => '15:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 6,  
+                'movie_id' => $i,   
+            ]);
+            Screening::create([
+                'projection_time' => '18:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 6,
+                'movie_id' => $i,
+            ]);
+            Screening::create([
+                'projection_time' => '22:00',
+                'projection_date' => Carbon::now()->addDays($j)->format('Y-m-d'),
+                'screen_id' => 6,
+                'movie_id' => $i,
+            ]);
+        }
+
     }
-}
+} 
